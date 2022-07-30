@@ -4,6 +4,7 @@ export default class Auth {
 
   constructor() {
     this.authUI = new firebaseui.auth.AuthUI(firebase.auth());
+    this.displayName = 'You';
 
     this.uiConfig = {
       signInOptions: [
@@ -21,6 +22,7 @@ export default class Auth {
 
   signIn() {
     authUI.start('#firebaseui-auth-container', uiConfig);
+    this.displayName = getAuth().currentUser.displayName;
   }
 
   signOut() {
@@ -32,4 +34,13 @@ export default class Auth {
       })
     }
   }
+
+  // getDisplayName() {
+  //   const user = getAuth().currentUser;
+    
+  //   if (user !== null) {
+  //     return user.displayName;
+  //   }
+  // }
+
 }

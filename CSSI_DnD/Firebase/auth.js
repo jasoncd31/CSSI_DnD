@@ -1,6 +1,6 @@
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 
-class Auth {
+export default class Auth {
 
   constructor() {
     this.authUI = new firebaseui.auth.AuthUI(firebase.auth());
@@ -24,10 +24,12 @@ class Auth {
   }
 
   signOut() {
-
+    if (window.confirm('Are you sure you want to sign out?')) {
+      signOut(getAuth()).then(() => {
+        alert('Successfully signed out!') // todo do we want this or is this just annoying
+      }).catch((error) => {
+        alert(`Error signing out. Error code: ${error}`)
+      })
+    }
   }
 }
-
-// export default Auth.authUI
-
-// import {authUI} from 'auth'

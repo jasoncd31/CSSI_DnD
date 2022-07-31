@@ -4,18 +4,25 @@ import { app } from 'initializeApp';
 const firebase = require("firebase");
 const firestore = require("firebase/firestore");
 
-export default class ConversationData {
+export default class Conversation {
   database = firestore.getFirestore(app);
 
-  constructor(contact, messages = []) {
+  constructor(contact, messages = [], id = 0) {
     this.contact = contact;
     this.messages = messages;
-    this.currentId = 0;
+    this.currentId = id;
+    
+    const conversation = firestore.doc(database, 'conversations', `${Auth.displayName}-${this.contact}`)
+      .withConverter(conversationConverter);
+    await setDoc(conversation, new Conversation(this.contact, this.messages, this.currentId));
   }
 
+  // document ID is saved as `${current user's display name}-${contact's display name}`
   addMessage(message, sentByUser) {
     this.messages.push(new Message(sentByUser, message, this.currentId));
     this.currentId += 1;
+
+    // todo update message array with arrayUnion()
   }
 
   getMessages() {
@@ -30,7 +37,7 @@ export default class ConversationData {
 
 }
 
-class Message {
+class Message { // todo turn this into an interface - see https://stackoverflow.com/questions/46578701/firestore-add-custom-object-to-db
   
   constructor(sentByUser, message, id) {
     this.sentByUser = sentByUser;
@@ -59,6 +66,8 @@ const conversationConverter = {
 
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);
-    return new Conversation(data.contact, data.messages);
+    return new Conversation(data.contact, data.messages, data.currentId);
   }
 }
+
+// todo does this need a messageConverter function

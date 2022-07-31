@@ -1,10 +1,15 @@
-import { Auth } from 'auth'
+import { Auth } from 'auth';
+import { app } from 'initializeApp';
 
-export default class Conversation {
+const firebase = require("firebase");
+const firestore = require("firebase/firestore");
 
-  constructor(contact) {
+export default class ConversationData {
+  database = firestore.getFirestore(app);
+
+  constructor(contact, messages = []) {
     this.contact = contact;
-    this.messages = [];
+    this.messages = messages;
     this.currentId = 0;
   }
 
@@ -41,4 +46,19 @@ class Message {
 
   // todo delete method?
 
+}
+
+const conversationConverter = {
+  toFirestore: (conversation) => {
+    return {
+      contact: conversation.contact,
+      messages: conversation.messages,
+      currentId: conversation.currentId
+    };
+  },
+
+  fromFirestore: (snapshot, options) => {
+    const data = snapshot.data(options);
+    return new Conversation(data.contact, data.messages);
+  }
 }

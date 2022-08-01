@@ -1,4 +1,4 @@
-import { Auth } from 'auth';
+import { auth } from '../js/signIn';
 import { app } from 'initializeApp';
 
 const firebase = require("firebase");
@@ -15,24 +15,26 @@ export default class Character {
         characterClass: characterData[2],
         alignment: characterData[3],
         currentHp: characterData[4],
-        maxHp: characterData[5]
+        maxHp: characterData[5],
+        armorClass: characterData[6],
+        initiative: characterData[7]
       },
       abilityScores: {
-        str: characterData[6],
-        dex: characterData[7],
-        con: characterData[8],
-        int: characterData[9],
-        wis: characterData[10],
-        cha: characterData[11]
+        str: characterData[8],
+        dex: characterData[9],
+        con: characterData[10],
+        int: characterData[11],
+        wis: characterData[12],
+        cha: characterData[13]
       }
     };
     
-    this.characterRef = firestore.doc(database, 'characters', `${Auth.displayName}_character`);
+    this.characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
     await firestore.setDoc(this.characterRef, this.character);
   }
 
-  addHp(health) {
-    this.character.basicInfo.currentHp += health;
+  updateHp(health, increment) {
+    this.character.basicInfo.currentHp += (increment ? health : (health * -1));
     this.updateBasicInfo('currentHp', this.character.basicInfo.currentHp);
   }
 

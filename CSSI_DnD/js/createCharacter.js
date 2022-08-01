@@ -1,5 +1,5 @@
 // to be called on 'submit/save/whatever we end up calling it' after filling out character info
-import { Character } from '../Firebase/userCharacter'
+import { Character } from '../Firebase/userCharacter';
 
 const charFields = document.querySelectorAll('.characterInfo');
 

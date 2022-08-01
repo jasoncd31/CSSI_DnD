@@ -4,7 +4,7 @@ export default class Auth {
 
   constructor() {
     this.authUI = new firebaseui.auth.AuthUI(firebase.auth());
-    this.displayName = null;
+    this.displayName = null; // display name will be null if user is not signed in
 
     this.uiConfig = {
       signInOptions: [

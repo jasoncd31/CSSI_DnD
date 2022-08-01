@@ -7,23 +7,23 @@ const firestore = require("firebase/firestore");
 export default class Character {
   database = firestore.getFirestore(app);
 
-  constructor(name, race, characterClass, alignment, maxHp, str, dex, con, int, wis, cha) {
+  constructor(characterData) {
     this.character = {
       basicInfo: {
-        name: name,
-        race: race,
-        characterClass: characterClass,
-        alignment: alignment,
-        currentHp: maxHp,
-        maxHp: maxHp
+        name: characterData[0],
+        race: characterData[1],
+        characterClass: characterData[2],
+        alignment: characterData[3],
+        currentHp: characterData[4],
+        maxHp: characterData[5]
       },
       abilityScores: {
-        str: str,
-        dex: dex,
-        con: con,
-        int: int,
-        wis: wis,
-        cha: cha
+        str: characterData[6],
+        dex: characterData[7],
+        con: characterData[8],
+        int: characterData[9],
+        wis: characterData[10],
+        cha: characterData[11]
       }
     };
     

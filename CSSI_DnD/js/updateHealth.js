@@ -2,6 +2,6 @@
 import { userCharacter } from 'createCharacter';
 
 const health = document.querySelector('#healthAmount');
-const increment = document.querySelector('#incrementHealth');
+const addOrSubtract = document.querySelector('#addOrSubtract');
 
-userCharacter.updateHp(health, increment);
+userCharacter.incrementBasicInfoNumber('currentHp', health, addOrSubtract);

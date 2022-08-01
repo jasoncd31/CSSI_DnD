@@ -8,7 +8,11 @@ export default class Character {
   database = firestore.getFirestore(app);
 
   constructor(characterData) {
-    this.character = {
+    this.createCharacter(characterData);
+  }
+
+  createCharacter(characterData) {
+    const character = {
       basicInfo: {
         name: characterData[0],
         race: characterData[1],
@@ -28,34 +32,37 @@ export default class Character {
         cha: characterData[13]
       }
     };
-    
-    this.characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-    await firestore.setDoc(this.characterRef, this.character);
+
+    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
+    await firestore.setDoc(characterRef, character);
   }
 
-  updateHp(health, increment) {
-    this.character.basicInfo.currentHp += (increment ? health : (health * -1));
-    this.updateBasicInfo('currentHp', this.character.basicInfo.currentHp);
+  incrementBasicInfoNumber(field, amount, add) {
+    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
+    await firestore.updateDoc(characterRef, {
+      [`basicInfo.${field}`]: increment(add ? amount : (amount * -1))
+    });
   }
 
   updateBasicInfo(field, value) {
-    this.character.basicInfo[field] = value;
-    await firestore.updateDoc(this.characterRef, {
+    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
+    await firestore.updateDoc(characterRef, {
       [`basicInfo.${field}`]: value
     });
   }
 
   /// Use abbrievieated terms for ability scores
   updateAbilityScore(field, value) {
-    this.character.abilityScores[field] = value;
-    await firestore.updateDoc(this.characterRef, {
+    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
+    await firestore.updateDoc(characterRef, {
       [`abilityScores.${field}`]: value
     });
   }
 
   delete() {
     if (window.confirm(`Are you sure you want to delete ${this.character.basicInfo.name}?\nThis action cannot be undone.`)) {
-      await firestore.deleteDoc(this.characterRef);
+      const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
+      await firestore.deleteDoc(characterRef);
     }
   }
 

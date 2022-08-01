@@ -4,7 +4,7 @@ export default class Auth {
 
   constructor() {
     this.authUI = new firebaseui.auth.AuthUI(firebase.auth());
-    this.displayName = 'You';
+    this.displayName = null;
 
     this.uiConfig = {
       signInOptions: [
@@ -17,7 +17,7 @@ export default class Auth {
           }
         }
       ]
-    }
+    };
   }
 
   signIn() {
@@ -28,19 +28,11 @@ export default class Auth {
   signOut() {
     if (window.confirm('Are you sure you want to sign out?')) {
       signOut(getAuth()).then(() => {
-        alert('Successfully signed out!') // todo do we want this or is this just annoying
+        this.displayName = null;
       }).catch((error) => {
-        alert(`Error signing out. Error code: ${error}`)
+        alert(`Error signing out. Error code: ${error}`);
       })
     }
   }
-
-  // getDisplayName() {
-  //   const user = getAuth().currentUser;
-    
-  //   if (user !== null) {
-  //     return user.displayName;
-  //   }
-  // }
 
 }

@@ -51,7 +51,7 @@ export default class Character {
     });
   }
 
-  deleteCharacter() {
+  delete() {
     if (window.confirm(`Are you sure you want to delete ${this.character.basicInfo.name}?\nThis action cannot be undone.`)) {
       await firestore.deleteDoc(this.characterRef);
     }

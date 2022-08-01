@@ -14,4 +14,4 @@ charFields.forEach((info) => {
   charData.push(value);
 });
 
-let character = new Character(charData);
+export let userCharacter = new Character(charData);

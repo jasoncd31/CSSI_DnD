@@ -31,8 +31,8 @@ export default class Character {
     await firestore.setDoc(this.characterRef, this.character);
   }
 
-  addHp(health) {
-    this.character.basicInfo.currentHp += health;
+  updateHp(health, increment) {
+    this.character.basicInfo.currentHp += (increment ? health : (health * -1));
     this.updateBasicInfo('currentHp', this.character.basicInfo.currentHp);
   }
 

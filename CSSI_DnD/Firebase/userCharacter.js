@@ -1,4 +1,4 @@
-import { Auth } from 'auth';
+import { auth } from '../js/signIn';
 import { app } from 'initializeApp';
 
 const firebase = require("firebase");
@@ -29,7 +29,7 @@ export default class Character {
       }
     };
     
-    this.characterRef = firestore.doc(database, 'characters', `${Auth.displayName}_character`);
+    this.characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
     await firestore.setDoc(this.characterRef, this.character);
   }
 

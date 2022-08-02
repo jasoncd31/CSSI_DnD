@@ -1,17 +1,20 @@
 // to be called on 'submit/save/whatever we end up calling it' after filling out character info
 import { Character } from '../Firebase/userCharacter';
+export let userCharacter = {};
 
-const charFields = document.querySelectorAll('.characterInfo');
+function createCharacter() {
+  const charFields = document.querySelectorAll('.input');
+  
+  let charData = [];
+  charFields.forEach((info) => {
+    const value = info.value;
+  
+    if (value == null) {
+      alert('All values are required!');
+    }
+  
+    charData.push(value);
+  });
 
-let charData = [];
-charFields.forEach((info) => {
-  const value = info.value;
-
-  if (value == null) {
-    alert('All values are required!');
-  }
-
-  charData.push(value);
-});
-
-export let userCharacter = new Character(charData);
+  userCharacter = new Character(charData);
+}

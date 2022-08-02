@@ -1,4 +1,7 @@
 import { Auth } from '../Firebase/auth';
+export let auth = {};
 
-export const auth = new Auth();
-auth.signIn();
+function signIn() {
+  auth = new Auth();
+  auth.signIn();
+}

@@ -1,3 +1,3 @@
-import { auth } from 'signIn';
+import { auth } from 'signIn.js';
 
 auth.signOut();

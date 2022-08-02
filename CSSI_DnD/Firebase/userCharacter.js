@@ -1,11 +1,12 @@
-import { auth } from '../js/signIn';
-import { app } from 'initializeApp';
+import { deleteDoc, doc, getDoc, getFirestore, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
-const firebase = require("firebase");
-const firestore = require("firebase/firestore");
+// import * as firestore from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+
+import { auth } from '../js/signIn.js';
+import { app } from './initializeFirebase.js';
 
 export default class Character {
-  database = firestore.getFirestore(app);
+  database = getFirestore(app);
 
   constructor(characterData) {
     this.createCharacter(characterData);
@@ -33,13 +34,13 @@ export default class Character {
       }
     };
 
-    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-    await firestore.setDoc(characterRef, character);
+    const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
+    await setDoc(characterRef, character);
   }
 
   /// Return an array containing all basic information about the current user's character
   getBasicInfo() {
-    const character = await firestore.getDoc(firestore.doc(database, 'characters', `${auth.displayName}_character`));
+    const character = await getDoc(doc(database, 'characters', `${auth.displayName}_character`));
 
     if (character.exists()) {
       return character.data().basicInfo;
@@ -50,7 +51,7 @@ export default class Character {
 
   /// Return an array containing the ability scores of the current user's character
   getAbilityScores() {
-    const character = await firestore.getDoc(firestore.doc(database, 'characters', `${auth.displayName}_character`));
+    const character = await getDoc(doc(database, 'characters', `${auth.displayName}_character`));
 
     if (character.exists()) {
       return character.data().abilityScores;
@@ -67,8 +68,8 @@ export default class Character {
    * @param add True if the amount is positive, false otherwise
    */
   incrementBasicInfoNumber(field, amount, add) {
-    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-    await firestore.updateDoc(characterRef, {
+    const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
+    await updateDoc(characterRef, {
       [`basicInfo.${field}`]: increment(add ? amount : (amount * -1))
     });
   }
@@ -80,8 +81,8 @@ export default class Character {
    * @param value The new value to set the field to. Will overwrite original value
    */
   updateBasicInfo(field, value) {
-    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-    await firestore.updateDoc(characterRef, {
+    const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
+    await updateDoc(characterRef, {
       [`basicInfo.${field}`]: value
     });
   }
@@ -93,8 +94,8 @@ export default class Character {
    * @param value The new value to set the ability score to. Will overwrite original value
    */
   updateAbilityScore(field, value) {
-    const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-    await firestore.updateDoc(characterRef, {
+    const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
+    await updateDoc(characterRef, {
       [`abilityScores.${field}`]: value
     });
   }
@@ -102,8 +103,8 @@ export default class Character {
   /// Delete the current character after asking for confirmation.
   delete() {
     if (window.confirm(`Are you sure you want to delete ${this.character.basicInfo.name}?\nThis action cannot be undone.`)) {
-      const characterRef = firestore.doc(database, 'characters', `${auth.displayName}_character`);
-      await firestore.deleteDoc(characterRef);
+      const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
+      await deleteDoc(characterRef);
     }
   }
 

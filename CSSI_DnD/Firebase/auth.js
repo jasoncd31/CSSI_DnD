@@ -1,17 +1,19 @@
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, EmailAuthProvider, GoogleAuthProvider, PhoneAuthProvider } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js';
+import { auth } from 'https://www.gstatic.com/firebasejs/8.10.1/firebase.js'; // think causes error - is this not a module?
+import { AuthUI } from 'https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js'; // also causes error - is this not a module?
 
 export default class Auth {
 
   constructor() {
-    this.authUI = new firebaseui.auth.AuthUI(firebase.auth());
+    this.authUI = new AuthUI(auth());
     this.displayName = null; // display name will be null if user is not signed in
 
     this.uiConfig = {
       signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+        EmailAuthProvider.PROVIDER_ID,
+        PhoneAuthProvider.PROVIDER_ID,
         {
-          provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          provider: GoogleAuthProvider.PROVIDER_ID,
           recaptchaParameters: {
             size: 'invisible'
           }
@@ -21,7 +23,7 @@ export default class Auth {
   }
 
   signIn() {
-    authUI.start('#firebaseui-auth-container', uiConfig);
+    this.authUI.start('#firebaseui-auth-container', uiConfig);
     this.displayName = getAuth().currentUser.displayName;
   }
 

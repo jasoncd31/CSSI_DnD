@@ -1,4 +1,4 @@
-import { Auth } from "../Firebase/auth";
+// import { Auth } from '../Firebase/auth.js'; // todo why is this broken
 export let auth = {};
 
 function signIn() {

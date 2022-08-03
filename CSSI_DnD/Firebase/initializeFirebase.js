@@ -1,3 +1,12 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
+export const app = firebase.initializeApp(firebaseConfig);
+export let displayName = null; // display name will be null if user is not signed in
 
-export const app = initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    displayName = user.displayName ? user.displayName : user.email.split('@')[0];
+    console.log(displayName);
+  }
+  else {
+    displayName = null;
+  }
+});

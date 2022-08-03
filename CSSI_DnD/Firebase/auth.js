@@ -1,8 +1,4 @@
 import { getAuth, signOut, EmailAuthProvider, GoogleAuthProvider, PhoneAuthProvider } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js';
-// import { auth } from 'https://www.gstatic.com/firebasejs/8.10.1/firebase.js';
-// import { AuthUI } from 'https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js'; // also causes error - is this not a module?
-// import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase.js';
-// import * as firebaseui from 'https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js';
 
 export function signIn() {
   const authUI = new firebaseui.auth.AuthUI(firebase.auth());
@@ -19,7 +15,6 @@ export function signIn() {
     ]
   };
   authUI.start('#firebaseui-auth-container', uiConfig);
-  // window.displayName = getAuth().currentUser.displayName;
 }
 
 // export class Auth {

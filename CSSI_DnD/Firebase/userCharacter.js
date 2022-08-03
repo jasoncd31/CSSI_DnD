@@ -1,45 +1,24 @@
-import { deleteDoc, doc, getDoc, getFirestore, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+import { deleteDoc, doc, getDoc, getFirestore, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
-// import { auth } from '../js/signIn.js';
-import { app } from './initializeFirebase.js';
+// assuming that this page will not be shown unless user is already signed in
+import { app, displayName } from './initializeFirebase.js';
+const database = getFirestore(app);
 
 export class Character {
-  database = getFirestore(app);
 
   constructor(characterData) {
     this.createCharacter(characterData);
   }
 
-  async createCharacter(characterData) {
-    const character = {
-      basicInfo: {
-        name: characterData[0],
-        race: characterData[1],
-        characterClass: characterData[2],
-        alignment: characterData[3],
-        currentHp: characterData[4],
-        maxHp: characterData[5],
-        armorClass: characterData[6],
-        initiative: characterData[7],
-        img: characterData[8]
-      },
-      abilityScores: {
-        str: characterData[9],
-        dex: characterData[10],
-        con: characterData[11],
-        int: characterData[12],
-        wis: characterData[13],
-        cha: characterData[14]
-      }
-    };
-
-    const characterRef = doc(database, 'characters', `${auth.displayName}_character`);
-    await setDoc(characterRef, character);
+  async createCharacter(char) {
+    const characterRef = database.collection('characters').doc(`${displayName}_character`);
+    await characterRef.set(char); // todo error handling
   }
 
   /// Return an object containing all basic information about the current user's character
   async getBasicInfo() {
-    const character = await getDoc(doc(database, 'characters', `${auth.displayName}_character`));
+    const characterRef = database.collection('characters');
+    const character = await getDoc(doc(database, 'characters', `${displayName}_character`)); // todo
 
     if (character.exists()) {
       return character.data().basicInfo;

@@ -87,7 +87,7 @@
           <!-- Image Submit -->
           <!-- <input id="char" class="button" type="submit" value="Add/Edit Image"> -->
           <!-- <input class="button" type="reset" value="Delete Image"> -->
-          <input id="char" class="input" type="text" placeholder="Image Link">
+          <input id="charImg" class="input" type="text" placeholder="Image Link">
         </div>
         <div class="card">
           <div class="card-content">
@@ -95,29 +95,29 @@
               <p> I like french fries and bread.</p>
             </div>
             <div class="content">
-              <div id="char" class="select" type="text">
-                <select>
+              <div class="select" type="text">
+                <select id="charRace">
                   <option> Human </option>
                   <option> Dragonborn </option>
                   <option> Elf </option>
                 </select>
               </div>
-              <div id="char" class="select" type="text">
-                <select>
+              <div class="select" type="text">
+                <select id="charAlignment">
                   <option> Lawful Good </option>
                   <option> Lawful Neutral </option>
                   <option> Lawful Evil </option>
                 </select>
               </div>
-              <div id="char" class="select" type="text">
-                <select>
+              <div class="select" type="text">
+                <select id="charClass">
                   <option> Bard </option>
                   <option> Ranger </option>
                   <option> Wizard </option>
                 </select>
               </div>
             </div>
-            <input id="char" class="input" type="text" placeholder="Character Name">
+            <input id="charName" class="input" type="text" placeholder="Character Name">
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@
               <h1 class="title has-text-centered">STR</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Strength Score Input-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Strength">
+              <input id="charStr" class="input" type="number" min="8" max="20" placeholder="Strength">
             </div>
           </div>
           <div class="column is-2">
@@ -137,7 +137,7 @@
               <h1 class="title has-text-centered">DEX</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Dex Score Input-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Dexterity">
+              <input id="charDex" class="input" type="number" min="8" max="20" placeholder="Dexterity">
             </div>
           </div>
           <div class="column is-2">
@@ -145,7 +145,7 @@
               <h1 class="title has-text-centered">CON</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Con Score Input-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Constitution">
+              <input id="charCon" class="input" type="number" min="8" max="20" placeholder="Constitution">
             </div>
           </div>
           <div class="column is-2">
@@ -153,7 +153,7 @@
               <h1 class="title has-text-centered">INT</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Int Score Input-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Intelligence">
+              <input id="charInt" class="input" type="number" min="8" max="20" placeholder="Intelligence">
             </div>
           </div>
           <div class="column is-2">
@@ -161,7 +161,7 @@
               <h1 class="title has-text-centered">WIS</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Wis Score Submit-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Wisdom">
+              <input id="charWis" class="input" type="number" min="8" max="20" placeholder="Wisdom">
             </div>
           </div>
           <div class="column is-2">
@@ -169,7 +169,7 @@
               <h1 class="title has-text-centered">CHA</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- CHA Score Submit-->
-              <input id="char" class="input" type="number" min="8" max="20" placeholder="Charisma">
+              <input id="charCha" class="input" type="number" min="8" max="20" placeholder="Charisma">
             </div>
           </div>
           <div class="column is-3">
@@ -177,14 +177,14 @@
               <h1 class="title has-text-centered">Max HP</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- HP Submit-->
-              <input id="char" class="input" type="number" min="1" max="200" placeholder="HP">
+              <input id="charMaxHp" class="input" type="number" min="1" max="200" placeholder="HP">
             </div>
           </div>
           <div class="column is-3">
             <div class="box is-primary">
               <h1 class="title has-text-centered">Curr HP</h1>
               <h2 class="subtitle has-text-centered">0</h2>
-              <input id="char" class="input" type="number" min="0" max="20" placeholder="HP">
+              <input id="charCurrentHp" class="input" type="number" min="0" max="20" placeholder="HP">
             </div>
           </div>
           <div class="column is-3">
@@ -192,7 +192,7 @@
               <h1 class="title has-text-centered">AC</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- AC Submit-->
-              <input id="char" class="input" type="number" min="6" max="30" placeholder="AC">
+              <input id="charArmorClass" class="input" type="number" min="6" max="30" placeholder="AC">
 
             </div>
           </div>
@@ -200,7 +200,7 @@
             <div class="box is-primary">
               <h1 class="title has-text-centered">Init</h1>
               <h2 class="subtitle has-text-centered">+0</h2>
-              <input id="char" class="input" type="number" min="0" max="40" placeholder="Initiative">
+              <input id="charInitiative" class="input" type="number" min="0" max="40" placeholder="Initiative">
               <button class="input createCharacter" type="submit">Submit</button>
               <script type="module" src="./js/createCharacter.js"></script>
             </div>

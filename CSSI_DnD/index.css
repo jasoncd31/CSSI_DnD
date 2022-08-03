@@ -1,3 +1,17 @@
 .navbar-item:hover{
-    color:hsl(348, 86%, 43%) !important
+    color:#930C10 !important
+}
+.navbar-item{
+    color: #dbdbdb !important;
+}
+.navbar{
+    background-color: #930C10 !important;
+}
+#sign-in{
+    background-color:#b00e13;
+    color:#dbdbdb
+}
+#sign-in:hover{
+    background-color: #dbdbdb;
+    color: #b00e13;
 }

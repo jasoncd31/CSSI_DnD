@@ -13,5 +13,5 @@ const uiConfig = {
 };
 document.querySelector('#sign-in').addEventListener('click', () => {
   authUI.start('#firebaseui-auth-container', uiConfig);
-  // window.displayName = getAuth().currentUser.displayName;
+  window.displayName = getAuth().currentUser.displayName;
 })

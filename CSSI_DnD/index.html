@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>D&D Companion</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="index.css">
   <script type="text/javascript" src="Firebase/config.js"></script>
   <script type="module" src="Firebase/initializeFirebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
@@ -13,10 +14,10 @@
 </head>
 <body>
   <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <a class="navbar-item" href="https://www.dndbeyond.com/">
+          <img src="https://www.jing.fm/clipimg/full/122-1227878_dungeons-dragons-dungeons-dragons.png" width="112" height="28">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -28,11 +29,11 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a href="index.html" class="navbar-item">
+          <a href="index.html" class="navbar-item has-text-grey-lighter">
             Home
           </a>
 
-          <a href="aboutus.html" class="navbar-item">
+          <a href="aboutus.html" class="navbar-item has-text-grey-lighter">
             About Us
           </a>
         </div>
@@ -43,7 +44,7 @@
               <!-- <a href="signup.html" class="button is-primary">
                 <strong>Sign up</strong>
               </a> -->
-              <button id="sign-in" class="input" type="submit">Sign In</button>
+              <button id="sign-in" class="button is-danger" type="submit">Sign In</button>
               <script type="module" src="./js/signIn.js"></script>
             </div>
           </div>
@@ -51,10 +52,10 @@
       </div>
     </nav>
   </header>
-  <section class="section">
-    <h1 class="title">Dungeon and Dragons Companion App</h1>
-    <h2 class="subtitle">
-      Digitally keep track of your character with <strong>Dungeon and Dragons Companion App</strong>!
+  <section class="section has-background-grey-lighter">
+    <h1 class="title has-text-danger-dark">Dungeon and Dragons Companion App</h1>
+    <h2 class="subtitle has-text-danger-dark">
+      Digitally keep track of your character with <strong class="subtitle has-text-danger-dark">Dungeon and Dragons Companion App</strong>!
     </h2>
     <div class="columns">
       <div class="column is-5">
@@ -168,7 +169,7 @@
             <div class="box is-primary">
               <h1 class="title has-text-centered">Passive Perception</h1>
               <h2 class="subtitle has-text-centered">Subtitle</h2>
-              <button class="input" type="submit" onclick="createCharacter()">Submit</button>
+              <button class="input createCharacter" type="submit">Submit</button>
               <script type="module" src="./js/createCharacter.js"></script>
             </div>
           </div>

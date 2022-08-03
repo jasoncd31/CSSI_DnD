@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>D&D Companion</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="index.css">
   <script type="text/javascript" src="Firebase/config.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
@@ -18,6 +19,7 @@
   <header id="firebaseui-auth-container">
     <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
+        <!-- LOGO Code-->
         <a class="navbar-item" href="https://www.dndbeyond.com/">
           <img src="https://www.jing.fm/clipimg/full/122-1227878_dungeons-dragons-dungeons-dragons.png" width="112"
             height="28">
@@ -123,10 +125,10 @@
       </div>
 
       <div class="column ">
-        <div class="columns is-multiline is-mobile">
+        <div class="columns is-multiline">
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">STR</h1>
+              <h1 class="title is-desktop has-text-centered">STR</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Strength Score Input-->
               <input id="charStr" class="input" type="number" min="8" max="20" placeholder="Strength">
@@ -134,7 +136,7 @@
           </div>
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">DEX</h1>
+              <h1 class="title is-desktop has-text-centered">DEX</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Dex Score Input-->
               <input id="charDex" class="input" type="number" min="8" max="20" placeholder="Dexterity">
@@ -142,7 +144,7 @@
           </div>
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">CON</h1>
+              <h1 class="title is-desktop has-text-centered">CON</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Con Score Input-->
               <input id="charCon" class="input" type="number" min="8" max="20" placeholder="Constitution">
@@ -150,7 +152,7 @@
           </div>
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">INT</h1>
+              <h1 class="title is-desktop has-text-centered">INT</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Int Score Input-->
               <input id="charInt" class="input" type="number" min="8" max="20" placeholder="Intelligence">
@@ -158,7 +160,7 @@
           </div>
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">WIS</h1>
+              <h1 class="title is-desktop has-text-centered">WIS</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- Wis Score Submit-->
               <input id="charWis" class="input" type="number" min="8" max="20" placeholder="Wisdom">
@@ -166,7 +168,7 @@
           </div>
           <div class="column is-2">
             <div class="box is-primary">
-              <h1 class="title has-text-centered">CHA</h1>
+              <h1 class="title is-desktop has-text-centered">CHA</h1>
               <h2 class="subtitle has-text-centered">0</h2>
               <!-- CHA Score Submit-->
               <input id="charCha" class="input" type="number" min="8" max="20" placeholder="Charisma">
@@ -184,6 +186,7 @@
             <div class="box is-primary">
               <h1 class="title has-text-centered">Curr HP</h1>
               <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Curr HP Submit -->
               <input id="charCurrentHp" class="input" type="number" min="0" max="20" placeholder="HP">
             </div>
           </div>
@@ -211,31 +214,36 @@
                 <div class="column is-2">
                   <div class="box">
                     <h1 class="title has-text-centered"> D4 </h1>
-                    <button id="dice" class="button">d4</button>
+                    <button id="d4" class="button">d4</button>
                   </div>
                 </div>
                 <div class="column is-2">
                   <div class="box">
+                    <h1 class="title has-text-centered"> D6 </h1>
                     <button id="dice" class="button">d6</button>
                   </div>
                 </div>
                 <div class="column is-2">
                   <div class="box">
+                    <h1 class="title has-text-centered"> D8 </h1>
                     <button id="dice" class="button">d8</button>
                   </div>
                 </div>
                 <div class="column is-2">
                   <div class="box">
+                    <h1 class="title has-text-centered"> D10 </h1>
                     <button id="dice" class="button">d10</button>
                   </div>
                 </div>
                 <div class="column is-2">
                   <div class="box">
+                    <h1 class="title has-text-centered"> D12 </h1>
                     <button id="dice" class="button">d12</button>
                   </div>
                 </div>
                 <div class="column is-2">
                   <div class="box">
+                    <h1 class="title has-text-centered"> D20 </h1>
                     <button id="dice" class="button">d20</button>
                   </div>
                 </div>

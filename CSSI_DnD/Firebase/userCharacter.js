@@ -6,7 +6,7 @@ import { auth } from '../js/signIn.js';
 import { app } from './initializeFirebase.js';
 // getDoc(doc(getFirestore(app), 'characters', ''));
 
-export default class Character {
+export class Character {
   database = getFirestore(app);
 
   constructor(characterData) {

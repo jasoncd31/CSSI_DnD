@@ -2,7 +2,7 @@ import { getAuth, signOut, EmailAuthProvider, GoogleAuthProvider, PhoneAuthProvi
 import { auth } from 'https://www.gstatic.com/firebasejs/8.10.1/firebase.js'; // think causes error - is this not a module?
 import { AuthUI } from 'https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js'; // also causes error - is this not a module?
 
-export default class Auth {
+export class Auth {
 
   constructor() {
     this.authUI = new AuthUI(auth());

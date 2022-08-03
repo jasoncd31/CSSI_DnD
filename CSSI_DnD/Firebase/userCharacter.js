@@ -1,10 +1,7 @@
 import { deleteDoc, doc, getDoc, getFirestore, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
-// import * as firestore from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
-
-import { auth } from '../js/signIn.js';
+// import { auth } from '../js/signIn.js';
 import { app } from './initializeFirebase.js';
-// getDoc(doc(getFirestore(app), 'characters', ''));
 
 export class Character {
   database = getFirestore(app);

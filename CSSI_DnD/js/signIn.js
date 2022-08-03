@@ -1,11 +1,17 @@
-import { Auth } from '../Firebase/auth.js';
-export let auth = {};
-
-function signIn() {
-    console.log("function called");
-    auth = new Auth();
-    auth.signIn();
-}
-
-console.log("script running");
-document.querySelector("#sign-in").addEventListener("click", signIn);
+const authUI = new firebaseui.auth.AuthUI(firebase.auth());
+const uiConfig = {
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    {
+      provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      recaptchaParameters: {
+        size: 'invisible'
+      }
+    }
+  ]
+};
+document.querySelector('#sign-in').addEventListener('click', () => {
+  authUI.start('#firebaseui-auth-container', uiConfig);
+  // window.displayName = getAuth().currentUser.displayName;
+})

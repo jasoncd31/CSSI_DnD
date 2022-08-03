@@ -4,7 +4,6 @@ export let displayName = null; // display name will be null if user is not signe
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     displayName = user.displayName ? user.displayName : user.email.split('@')[0];
-    console.log(displayName);
   }
   else {
     displayName = null;

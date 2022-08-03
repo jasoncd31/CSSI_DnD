@@ -20,15 +20,16 @@ export class Character {
         currentHp: characterData[4],
         maxHp: characterData[5],
         armorClass: characterData[6],
-        initiative: characterData[7]
+        initiative: characterData[7],
+        img: characterData[8]
       },
       abilityScores: {
-        str: characterData[8],
-        dex: characterData[9],
-        con: characterData[10],
-        int: characterData[11],
-        wis: characterData[12],
-        cha: characterData[13]
+        str: characterData[9],
+        dex: characterData[10],
+        con: characterData[11],
+        int: characterData[12],
+        wis: characterData[13],
+        cha: characterData[14]
       }
     };
 
@@ -36,7 +37,7 @@ export class Character {
     await setDoc(characterRef, character);
   }
 
-  /// Return an array containing all basic information about the current user's character
+  /// Return an object containing all basic information about the current user's character
   async getBasicInfo() {
     const character = await getDoc(doc(database, 'characters', `${auth.displayName}_character`));
 
@@ -47,7 +48,7 @@ export class Character {
     }
   }
 
-  /// Return an array containing the ability scores of the current user's character
+  /// Return an object containing the ability scores of the current user's character
   async getAbilityScores() {
     const character = await getDoc(doc(database, 'characters', `${auth.displayName}_character`));
 

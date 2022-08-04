@@ -9,7 +9,11 @@ const database = getFirestore(app);
 export function createCharacter(char) {
   charName = document.querySelector('#charName').value;
   const characterRef = database.collection('characters').doc(`${charName}_character`);
-  characterRef.set(char).then(setCharValues); // .then(alert?)
+  characterRef.set(char)
+    .then(setCharValues)
+    .then(() => {
+      alert('Character successfully created!');
+    });
   // todo should probably redirect back to home page or some kind of success message
 }
 

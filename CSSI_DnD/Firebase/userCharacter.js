@@ -10,33 +10,25 @@ export function createCharacter(char) {
   charName = document.querySelector('#charName').value;
   const characterRef = database.collection('characters').doc(`${charName}_character`);
   characterRef.set(char)
-    .then(setCharValues)
     .then(() => {
       alert('Character successfully created!');
-    });
-  // todo should probably redirect back to home page or some kind of success message
+    })
+    .then(setCharValues);
 }
 
 /// Return the character data from Firestore
-function getCharacter() {
+export function getCharacter() {
   const characterRef = database.collection('characters').doc(`${charName}_character`);
-  characterRef.get().then((character) => {
-    if (character.exists) {
-      return character.data();
-    } else {
-      alert(`There was an error getting ${charName}'s data. Please try again in a few minutes!`);
-    }
+  
+  return new Promise((resolve, reject) => {
+    characterRef.get().then((character) => {
+      if (character.exists) {
+        resolve(character.data());
+      } else {
+        alert(`There was an error getting ${charName}'s data. Please try again in a few minutes!`);
+      }
+    });
   });
-}
-
-/// Return an object containing all basic information about the current user's character
-export function getBasicInfo() {
-  return getCharacter().basicInfo;
-}
-
-/// Return an object containing the ability scores of the current user's character
-export function getAbilityScores() {
-  return getCharacter().abilityScores;
 }
 
 /**

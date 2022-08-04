@@ -33,6 +33,7 @@ init();
 function init() {
     // SCENE
     scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xcccccc);
     // CAMERA
 
     // var SCREEN_WIDTH = window.innerWidth * 0.7,
@@ -64,7 +65,7 @@ function init() {
     // EVENTS
     // CONTROLS
     controls = new OrbitControls(camera, renderer.domElement);
-    // controls.enabled = false;
+    controls.enabled = false;
     // STATS
     //stats = new Stats();
     //stats.domElement.style.position = 'absolute';

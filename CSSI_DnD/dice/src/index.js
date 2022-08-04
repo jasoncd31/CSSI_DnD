@@ -359,6 +359,17 @@ function init() {
         document.querySelector("#Counterd20").innerHTML = diceInputs["twenty"];
     });
     document.querySelector("#submit").addEventListener("click", submitted);
+    document.querySelector("#clear").addEventListener("click", cleared);
+    function cleared() {
+        while (scene.children.length > 0) {
+            scene.remove(scene.children[0]);
+        }
+        scene.add(camera);
+        scene.add(ambient);
+        scene.add(directionalLight);
+        scene.add(light);
+        dice = [];
+    }
     function submitted() {
         console.log(diceInputs);
         makeDice(

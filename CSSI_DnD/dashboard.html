@@ -66,7 +66,7 @@
       <div class="column is-5">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">
+            <p class="card-header-title" id="nameVal">
               Character Name
             </p>
             <button class="card-header-icon" aria-label="more options">
@@ -79,22 +79,16 @@
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <img src="https://i.pinimg.com/736x/66/0d/16/660d161636fa129224cd5e8836a5ef5a.jpg"
+              <img id="imgVal" src="https://i.pinimg.com/736x/66/0d/16/660d161636fa129224cd5e8836a5ef5a.jpg"
                 alt="Placeholder image">
             </figure>
           </div>
         </div>
         <div class="card has-addons">
-          <!-- Image Submit -->
-          <!-- <input id="char" class="button" type="submit" value="Add/Edit Image"> -->
-          <!-- <input class="button" type="reset" value="Delete Image"> -->
           <input id="charImg" class="input" type="text" placeholder="Image Link">
         </div>
         <div class="card">
           <div class="card-content">
-            <div class="content">
-              <p> I like french fries and bread.</p>
-            </div>
             <div class="content">
               <div class="select" type="text">
                 <select id="charRace">
@@ -150,7 +144,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">STR</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="strVal">0</h2>
               <!-- Strength Score Input-->
               <input id="charStr" class="input" type="number" min="8" max="20" placeholder="Strength">
             </div>
@@ -158,7 +152,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">DEX</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="dexVal">0</h2>
               <!-- Dex Score Input-->
               <input id="charDex" class="input" type="number" min="8" max="20" placeholder="Dexterity">
             </div>
@@ -166,7 +160,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">CON</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="conVal">0</h2>
               <!-- Con Score Input-->
               <input id="charCon" class="input" type="number" min="8" max="20" placeholder="Constitution">
             </div>
@@ -174,7 +168,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">INT</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="intVal">0</h2>
               <!-- Int Score Input-->
               <input id="charInt" class="input" type="number" min="8" max="20" placeholder="Intelligence">
             </div>
@@ -182,7 +176,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">WIS</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="wisVal">0</h2>
               <!-- Wis Score Submit-->
               <input id="charWis" class="input" type="number" min="8" max="20" placeholder="Wisdom">
             </div>
@@ -190,7 +184,7 @@
           <div class="column is-2">
             <div class="box is-primary">
               <h1 class="title is-desktop has-text-centered">CHA</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="chaVal">0</h2>
               <!-- CHA Score Submit-->
               <input id="charCha" class="input" type="number" min="8" max="20" placeholder="Charisma">
             </div>
@@ -198,7 +192,7 @@
           <div class="column is-3">
             <div class="box is-primary">
               <h1 class="title has-text-centered">Max HP</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="maxHpVal">0</h2>
               <!-- HP Submit-->
               <input id="charMaxHp" class="input" type="number" min="1" max="200" placeholder="HP">
             </div>
@@ -206,7 +200,7 @@
           <div class="column is-3">
             <div class="box is-primary">
               <h1 class="title has-text-centered">Curr HP</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="currentHpVal">0</h2>
               <!-- Curr HP Submit -->
               <input id="charCurrentHp" class="input" type="number" min="0" max="20" placeholder="HP">
             </div>
@@ -214,7 +208,7 @@
           <div class="column is-3">
             <div class="box is-primary">
               <h1 class="title has-text-centered">AC</h1>
-              <h2 class="subtitle has-text-centered">0</h2>
+              <h2 class="subtitle has-text-centered" id="armorClassVal">0</h2>
               <!-- AC Submit-->
               <input id="charArmorClass" class="input" type="number" min="6" max="30" placeholder="AC">
 
@@ -223,7 +217,7 @@
           <div class="column is-3">
             <div class="box is-primary">
               <h1 class="title has-text-centered">Init</h1>
-              <h2 class="subtitle has-text-centered">+0</h2>
+              <h2 class="subtitle has-text-centered" id="initiativeVal">+0</h2>
               <input id="charInitiative" class="input" type="number" min="0" max="40" placeholder="Initiative">
               <button class="input createCharacter" type="submit">Submit</button>
               <script type="module" src="./js/createCharacter.js"></script>

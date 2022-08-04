@@ -230,14 +230,7 @@ function init() {
     //   scene.add(die.getObject());
     //   dice.push(die);
     // }
-    function makeDice(
-        four = 0,
-        six = 0,
-        eight = 4,
-        ten = 0,
-        twelve = 0,
-        twenty = 0
-    ) {
+    function makeDice(four, six, eight, ten, twelve, twenty) {
         for (let i = 0; i < four; i++) {
             var die = new DiceD4({ size: 1.5, backColor: color });
             // die.getObject().position.y += 10;
@@ -279,8 +272,9 @@ function init() {
         // for (var i = 0; i < dice.length; i++) {
         //   dice[i].getObject().position.set(0, -10, 0);
         // }
+        console.log(dice);
     }
-    makeDice();
+    // makeDice();
 
     function randomDiceThrow() {
         let diceValues = [];
@@ -331,6 +325,54 @@ function init() {
     document
         .querySelector("#ThreeJS")
         .addEventListener("click", randomDiceThrow);
+
+    let diceInputs = {
+        four: 0,
+        six: 0,
+        eight: 0,
+        ten: 0,
+        twelve: 0,
+        twenty: 0,
+    };
+    document.querySelector("#d4").addEventListener("click", function () {
+        diceInputs["four"] = diceInputs["four"] + 1;
+    });
+    document.querySelector("#d6").addEventListener("click", function () {
+        diceInputs["six"] = diceInputs["six"] + 1;
+    });
+    document.querySelector("#d8").addEventListener("click", function () {
+        diceInputs["eight"] = diceInputs["eight"] + 1;
+    });
+    document.querySelector("#d10").addEventListener("click", function () {
+        diceInputs["ten"] = diceInputs["ten"] + 1;
+    });
+    document.querySelector("#d12").addEventListener("click", function () {
+        diceInputs["twelve"] = diceInputs["twelve"] + 1;
+    });
+    document.querySelector("#d20").addEventListener("click", function () {
+        diceInputs["twenty"] = diceInputs["twenty"] + 1;
+    });
+    document.querySelector("#submit").addEventListener("click", submitted);
+    function submitted() {
+        console.log(diceInputs);
+        makeDice(
+            diceInputs["four"],
+            diceInputs["six"],
+            diceInputs["eight"],
+            diceInputs["ten"],
+            diceInputs["twelve"],
+            diceInputs["twenty"]
+        );
+        diceInputs = {
+            four: 0,
+            six: 0,
+            eight: 0,
+            ten: 0,
+            twelve: 0,
+            twenty: 0,
+        };
+        console.log(diceInputs);
+    }
 }
 // console.log(valuess)
 

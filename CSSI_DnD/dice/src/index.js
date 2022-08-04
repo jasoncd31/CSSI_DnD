@@ -336,21 +336,27 @@ function init() {
     };
     document.querySelector("#d4").addEventListener("click", function () {
         diceInputs["four"] = diceInputs["four"] + 1;
+        document.querySelector("#Counterd4").innerHTML = diceInputs["four"];
     });
     document.querySelector("#d6").addEventListener("click", function () {
         diceInputs["six"] = diceInputs["six"] + 1;
+        document.querySelector("#Counterd6").innerHTML = diceInputs["six"];
     });
     document.querySelector("#d8").addEventListener("click", function () {
         diceInputs["eight"] = diceInputs["eight"] + 1;
+        document.querySelector("#Counterd8").innerHTML = diceInputs["eight"];
     });
     document.querySelector("#d10").addEventListener("click", function () {
         diceInputs["ten"] = diceInputs["ten"] + 1;
+        document.querySelector("#Counterd10").innerHTML = diceInputs["ten"];
     });
     document.querySelector("#d12").addEventListener("click", function () {
         diceInputs["twelve"] = diceInputs["twelve"] + 1;
+        document.querySelector("#Counterd12").innerHTML = diceInputs["twelve"];
     });
     document.querySelector("#d20").addEventListener("click", function () {
         diceInputs["twenty"] = diceInputs["twenty"] + 1;
+        document.querySelector("#Counterd20").innerHTML = diceInputs["twenty"];
     });
     document.querySelector("#submit").addEventListener("click", submitted);
     function submitted() {
@@ -371,6 +377,12 @@ function init() {
             twelve: 0,
             twenty: 0,
         };
+        document.querySelector("#Counterd4").innerHTML = diceInputs["four"];
+        document.querySelector("#Counterd6").innerHTML = diceInputs["six"];
+        document.querySelector("#Counterd8").innerHTML = diceInputs["eight"];
+        document.querySelector("#Counterd10").innerHTML = diceInputs["ten"];
+        document.querySelector("#Counterd12").innerHTML = diceInputs["twelve"];
+        document.querySelector("#Counterd20").innerHTML = diceInputs["twenty"];
         console.log(diceInputs);
     }
 }

@@ -10,6 +10,8 @@ export function signIn() {
         // document.querySelector('#sign-out').classList.remove('hidden');
       }
     },
+    signInFlow: 'popup',
+    signInSuccessUrl: '/dashboard',
     signInOptions: [
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID,

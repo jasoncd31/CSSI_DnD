@@ -10,7 +10,7 @@ export function createCharacter(char) {
   charName = document.querySelector('#charName').value;
   const characterRef = database.collection('characters').doc(`${charName}_character`);
   characterRef.set(char)
-    .then(setCharValues)
+    // .then(setCharValues)
     .then(() => {
       alert('Character successfully created!');
     });

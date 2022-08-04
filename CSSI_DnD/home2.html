@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D&D Companion</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+  <script type="text/javascript" src="Firebase/config.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+  <script type="module" src="Firebase/initializeFirebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+  <script type="module" src="./dice/src/dice.js"></script>
+  <script type="module" src="./dice/src/index.js"></script>
+</head>
+
+<body>
+  <header id="firebaseui-auth-container">
+    <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- LOGO Code-->
+        <a class="navbar-item" href="https://www.dndbeyond.com/">
+          <img src="https://www.jing.fm/clipimg/full/122-1227878_dungeons-dragons-dungeons-dragons.png" width="112"
+            height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="home2.html" class="navbar-item has-text-grey-lighter">
+            Home
+          </a>
+
+          <a href="aboutus2.html" class="navbar-item has-text-grey-lighter">
+            About Us
+          </a>
+          <a href="dashboard.html" class="navbar-item has-text-grey-lighter">
+            Dashboard
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <!-- <a href="signup.html" class="button is-primary">
+                <strong>Sign up</strong>
+              </a> -->
+              <button id="sign-in" class="button is-danger" type="submit">Sign In</button>
+              <script type="module" src="./js/signIn.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="section has-background-grey-lighter">
+    <h1 class="title has-text-danger-dark">Dungeon and Dragons Companion App</h1>
+    <h2 class="subtitle has-text-danger-dark">
+      Digitally keep track of your character with <strong class="subtitle has-text-danger-dark">Dungeon and Dragons
+        Companion App</strong>!
+    </h2>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <i>Dungeon and Dragons Companion App</i> by Natalie Lau, Saad Salman, and Jason Douglas. <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -6,10 +6,13 @@
 }
 .navbar{
     background-color: #930C10 !important;
+    font-weight: bolder !important;
+
 }
 #sign-in{
     background-color:#b00e13;
-    color:#dbdbdb
+    color:#dbdbdb;
+    font-weight: bolder;
 }
 #sign-in:hover{
     background-color: #dbdbdb;

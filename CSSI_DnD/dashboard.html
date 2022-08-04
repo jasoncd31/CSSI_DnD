@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D&D Companion</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+  <script type="text/javascript" src="Firebase/config.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+  <script type="module" src="Firebase/initializeFirebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+  <script type="module" src="./dice/src/dice.js"></script>
+  <script type="module" src="./dice/src/index.js"></script>
+</head>
+
+<body>
+  <header id="firebaseui-auth-container">
+    <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- LOGO Code-->
+        <a class="navbar-item" href="https://www.dndbeyond.com/">
+          <img src="https://www.jing.fm/clipimg/full/122-1227878_dungeons-dragons-dungeons-dragons.png" width="112"
+            height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="home2.html" class="navbar-item has-text-grey-lighter">
+            Home
+          </a>
+          <a href="dashboard.html" class="navbar-item has-text-grey-lighter">
+            Dashboard
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <!-- <a href="signup.html" class="button is-primary">
+                <strong>Sign up</strong>
+              </a> -->
+              <button id="sign-in" class="button is-danger" type="submit">Sign In</button>
+              <script type="module" src="./js/signIn.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="section has-background-grey-lighter has-text-centered">
+    <div class="box">
+      <h1 class="title">Dungeon and Dragons Companion App Dashboard</h1>
+    </div>
+    <div class="columns">
+      <div class="column is-5">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Character Name
+            </p>
+            <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </header>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="https://i.pinimg.com/736x/66/0d/16/660d161636fa129224cd5e8836a5ef5a.jpg"
+                alt="Placeholder image">
+            </figure>
+          </div>
+        </div>
+        <div class="card has-addons">
+          <!-- Image Submit -->
+          <!-- <input id="char" class="button" type="submit" value="Add/Edit Image"> -->
+          <!-- <input class="button" type="reset" value="Delete Image"> -->
+          <input id="charImg" class="input" type="text" placeholder="Image Link">
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <p> I like french fries and bread.</p>
+            </div>
+            <div class="content">
+              <div class="select" type="text">
+                <select id="charRace">
+                  <option> Dragonborn </option>
+                  <option> Dwarf </option>
+                  <option> Elf </option>
+                  <option> Gnome </option>
+                  <option> Half-Elf </option>
+                  <option> Halfling </option>
+                  <option> Half-Orc </option>
+                  <option> Human </option>
+                  <option> Tiefling </option>
+                </select>
+              </div>
+              <div class="select" type="text">
+                <select id="charAlignment">
+                  <option> Lawful Good </option>
+                  <option> Lawful Neutral </option>
+                  <option> Lawful Evil </option>
+                  <option> Neutral Good </option>
+                  <option> True Neutral </option>
+                  <option> Neutral Evil </option>
+                  <option> Chaotic Good </option>
+                  <option> Chaotic Neutral </option>
+                  <option> Chaotic Evil </option>
+                </select>
+              </div>
+              <div class="select" type="text">
+                <select id="charClass">
+                  <option> Artificer </option>
+                  <option> Barbarian </option>
+                  <option> Bard </option>
+                  <option> Cleric </option>
+                  <option> Druid </option>
+                  <option> Fighter </option>
+                  <option> Monk </option>
+                  <option> Paladin </option>
+                  <option> Ranger </option>
+                  <option> Rogue </option>
+                  <option> Sorcerer </option>
+                  <option> Warlock </option>
+                  <option> Wizard </option>
+                </select>
+              </div>
+            </div>
+            <input id="charName" class="input" type="text" placeholder="Character Name">
+          </div>
+        </div>
+      </div>
+      <!-- Major Center Div-->
+      <div class="column">
+        <div class="columns is-multiline">
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">STR</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Strength Score Input-->
+              <input id="charStr" class="input" type="number" min="8" max="20" placeholder="Strength">
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">DEX</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Dex Score Input-->
+              <input id="charDex" class="input" type="number" min="8" max="20" placeholder="Dexterity">
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">CON</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Con Score Input-->
+              <input id="charCon" class="input" type="number" min="8" max="20" placeholder="Constitution">
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">INT</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Int Score Input-->
+              <input id="charInt" class="input" type="number" min="8" max="20" placeholder="Intelligence">
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">WIS</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Wis Score Submit-->
+              <input id="charWis" class="input" type="number" min="8" max="20" placeholder="Wisdom">
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="box is-primary">
+              <h1 class="title is-desktop has-text-centered">CHA</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- CHA Score Submit-->
+              <input id="charCha" class="input" type="number" min="8" max="20" placeholder="Charisma">
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box is-primary">
+              <h1 class="title has-text-centered">Max HP</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- HP Submit-->
+              <input id="charMaxHp" class="input" type="number" min="1" max="200" placeholder="HP">
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box is-primary">
+              <h1 class="title has-text-centered">Curr HP</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- Curr HP Submit -->
+              <input id="charCurrentHp" class="input" type="number" min="0" max="20" placeholder="HP">
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box is-primary">
+              <h1 class="title has-text-centered">AC</h1>
+              <h2 class="subtitle has-text-centered">0</h2>
+              <!-- AC Submit-->
+              <input id="charArmorClass" class="input" type="number" min="6" max="30" placeholder="AC">
+
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box is-primary">
+              <h1 class="title has-text-centered">Init</h1>
+              <h2 class="subtitle has-text-centered">+0</h2>
+              <input id="charInitiative" class="input" type="number" min="0" max="40" placeholder="Initiative">
+              <button class="input createCharacter" type="submit">Submit</button>
+              <script type="module" src="./js/createCharacter.js"></script>
+            </div>
+          </div>
+          <!-- 3rd Row Div -->
+          <div class="column is-12">
+            <div class="box has-background-white-ter">
+              <div class="columns is-multiline">
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D4 </h1>
+                    <button id="d4" class="button">Add</button>
+                    <button id="Counterd4" class="button">0</button>
+                  </div>
+                </div>
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D6 </h1>
+                    <button id="d6" class="button">Add</button>
+                    <button id="Counterd6" class="button">0</button>
+                  </div>
+                </div>
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D8 </h1>
+                    <button id="d8" class="button">Add</button>
+                    <button id="Counterd8" class="button">0</button>
+                  </div>
+                </div>
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D10 </h1>
+                    <button id="d10" class="button">Add</button>
+                    <button id="Counterd10" class="button">0</button>
+                  </div>
+                </div>
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D12 </h1>
+                    <button id="d12" class="button">Add</button>
+                    <button id="Counterd12" class="button">0</button>
+                  </div>
+                </div>
+                <div class="column is-2">
+                  <div class="box has-text-centered">
+                    <h1 class="title has-text-centered"> D20 </h1>
+                    <button id="d20" class="button">Add</button>
+                    <button id="Counterd20" class="button">0</button>
+                  </div>
+                </div>
+                <!-- Submit dice for rolling-->
+                <div class="column is-2 is-offset-5">
+                  <div class="box has-text-centered">
+                    <button id="submit" class="button">Submit</button>
+                    <button id="clear" class="button">Clear</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- Saad add here  -->
+          <div class="column is-2">
+              <div id="ThreeJS"></div>
+              <script type="module" src="./dice/src/index.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div>
+  </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <i>Dungeon and Dragons Companion App</i> by Natalie Lau, Saad Salman, and Jason Douglas. <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

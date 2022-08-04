@@ -3,13 +3,6 @@ const auth = firebase.auth();
 export function signIn() {
   const authUI = new firebaseui.auth.AuthUI(auth);
   const uiConfig = {
-    callbacks: {
-      uiShown: function() {
-        console.log('uiConfig callback');
-        document.querySelector('#sign-in').classList.add('hidden'); // todo this does nothing
-        // document.querySelector('#sign-out').classList.remove('hidden');
-      }
-    },
     signInFlow: 'popup',
     signInSuccessUrl: '/dashboard',
     signInOptions: [
@@ -30,6 +23,7 @@ export function signOut() {
   if (window.confirm('Are you sure you want to sign out?')) {
     auth.signOut().then(() => {
       window.displayName = null;
+      window.location.href = '/index';
     }).catch((error) => {
       alert(`Error signing out. Error code: ${error}`);
     })

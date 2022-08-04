@@ -1,13 +1,12 @@
 // to be called on 'submit/save/whatever we end up calling it' after filling out character info
-import { Character } from '../Firebase/userCharacter.js';
-export let userCharacter = {};
+import { createCharacter } from '../Firebase/userCharacter.js';
 
-function createCharacter() {
+function saveCharacter() {
   const race = document.querySelector('#charRace');
   const charClass = document.querySelector('#charClass');
   const alignment = document.querySelector('#charAlignment');
 
-  userCharacter = new Character({
+  createCharacter({
     basicInfo: {
       name: document.querySelector('#charName').value,
       race: race.options[race.selectedIndex].text,
@@ -30,4 +29,4 @@ function createCharacter() {
   });
 }
 
-document.querySelector('.createCharacter').addEventListener('click', createCharacter);
+document.querySelector('.createCharacter').addEventListener('click', saveCharacter);
